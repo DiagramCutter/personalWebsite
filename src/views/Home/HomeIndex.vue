@@ -1,25 +1,26 @@
 <template>
-  <div class="box" @click="loginHandle">{{ useLoginDataStore().token }}</div>
+  <main class="home-cinema">
+    <HeroScene />
+    <IdentityScene />
+    <SkillEngineScene />
+    <ProjectsScene />
+    <EssaysScene />
+    <CtaScene />
+  </main>
 </template>
-<script setup lang="ts">
-import { api } from '@/utils/alova/api'
-import { useLoginDataStore } from '@/stores/loginData'
 
-const loginHandle = async () => {
-  const res = await api({
-    username: 'zizhujianzhan',
-    password: 'zizhujianzhan@2025!',
-  })
-  useLoginDataStore().setToken(res.data)
-}
+<script setup lang="ts">
+import CtaScene from '@/components/scenes/CtaScene.vue'
+import EssaysScene from '@/components/scenes/EssaysScene.vue'
+import HeroScene from '@/components/scenes/HeroScene.vue'
+import IdentityScene from '@/components/scenes/IdentityScene.vue'
+import ProjectsScene from '@/components/scenes/ProjectsScene.vue'
+import SkillEngineScene from '@/components/scenes/SkillEngineScene.vue'
 </script>
+
 <style lang="scss" scoped>
-.box {
-  width: 100px;
-  height: 100px;
-  background-color: red;
-}
-.audio_mian {
-  display: none;
+.home-cinema {
+  position: relative;
+  z-index: 1;
 }
 </style>
